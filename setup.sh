@@ -7,8 +7,8 @@ echo "Copy config file ...==================================="
 
 cp ./system-log.conf /etc/syslog-ng/conf.d/system-log.conf
 echo "Creating dir for logs ...=============================="
-mkdir /var/log/system-log
-ls -lah /var/log/system-log
+mkdir /opt/system-log
+ls -lah /opt/system-log
 echo "Restarting service ...================================="
 service syslog-ng status
 service syslog-ng restart
