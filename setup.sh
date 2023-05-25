@@ -1,18 +1,19 @@
 #!/bin/bash
 
-echo "Update and setup..."
+echo "Update and setup... ==================================="
 apt update
 apt install mc syslog-ng -y
-echo "Copy config file ..."
+echo "Copy config file ...==================================="
 
 cp ./system-log.conf /etc/syslog-ng/conf.d/system-log.conf
-echo "Creating dir for logs ..."
+echo "Creating dir for logs ...=============================="
 mkdir /var/log/system-log
-echo "Restarting service ..."
+ls -lah /var/log/system-log
+echo "Restarting service ...================================="
 service syslog-ng status
 service syslog-ng restart
 service syslog-ng status
-echo "Checking networking ..."
+echo "Checking networking ...================================"
 netstat -nlp | grep 514
 
 echo " _____  _    _   ____    _        _____    ___    "
