@@ -1,0 +1,24 @@
+#!/bin/bash
+
+   alertRecipient="admin@in.local"
+
+# the mail recipient for alerts
+
+   # process each line of input and produce an alert email
+   while read line
+   do
+      # remove any repeated messages
+      echo ${line} | grep "message repeated" > /dev/null 2>&1
+      if test $? -eq 1
+      then
+         # send the alert
+         echo "${line}" | mailx -s "critical error on syslog" ${alertRecipient}
+      fi
+   done
+
+# These steps will configure syslog-ng to send syslog messages to email using a named-pipe and a shell script.
+# The shell script reads from the named-pipe and sends the messages to the specified email recipient.
+
+# Note: Make sure to replace fireman@example.com with the actual email address where you want to receive
+# the syslog messages.
+
