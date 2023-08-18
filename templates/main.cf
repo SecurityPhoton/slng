@@ -1,3 +1,5 @@
+# Postfix config file with relay host to send email
+
 smtpd_banner = $myhostname ESMTP $mail_name (Debian/GNU)
 biff = no
 
